@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+	<title>Galery Foto</title>
+<style>
+	h1{
+		font-family: sans-serif;
+       font-size: 20px;
+	 }
+</style>
+</head>
+<body>
+  <h1>Kota Kenangan (Mini Album)</h1>
+  <img src="gambar/1.jpg" height="auto" width="100%" id="image">
+  <br>
+  <div id="caption">Malang</div>
+  <br>
+  <a href="#" onclick="sebelum()">Sebelum</a>
+  <a href="#" onclick="ubah(1)">1</a>
+  <a href="#" onclick="ubah(2)">2</a>
+  <a href="#" onclick="ubah(3)">3</a>
+  <a href="#" onclick="sesudah()">Sesudah</a>
+
+ <script>
+ 	var nomor = 0;
+ 	var caption = document.getElementById('caption');
+    var text =['Malang', 'Kota', 'Kenangan']
+ 	var aray = 0;
+ 	function ubah(angka){
+ 	nomor = angka;
+ 	aray = angka-1;	
+ 	var lokasi ='gambar/'+angka+'.jpg'; 
+ 	document.getElementById('image').src=lokasi;
+ 	caption.innerHTML = text[aray];
+ 	return false;
+    }
+    function sebelum(){
+    	nomor = nomor -1;
+    	aray = nomor -1;
+    	if(nomor<1){
+    		nomor=3;
+    	}
+    	if(aray < 0){
+    		aray=2;
+    	}
+    	var lokasi ='gambar/'+nomor+'.jpg'; 
+    	document.getElementById('image').src=lokasi;
+     	caption.innerHTML = text[aray];
+     	return false;
+    }
+    function sesudah(){
+    	nomor = nomor +1;
+    	aray = nomor -1;
+    	if(nomor>3){
+    		nomor=1;
+    	}
+    	
+    	if(aray > 2){
+    		aray=0;
+    	}
+    	var lokasi ='gambar/'+nomor+'.jpg'; 
+    	document.getElementById('image').src=lokasi;
+        caption.innerHTML = text[aray];
+     	return false;
+    }
+
+
+ </script>
+ 
+</body>
+</html>
